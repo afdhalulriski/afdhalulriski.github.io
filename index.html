@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disnaker Aceh - Layanan Publik</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    body { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<!-- HEADER -->
+<header class="bg-blue-800 text-white shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+    <h1 class="text-xl font-bold">Disnaker Aceh</h1>
+    <nav class="space-x-4">
+      <a href="#beranda" class="hover:underline">Beranda</a>
+      <a href="#layanan" class="hover:underline">Layanan</a>
+      <a href="#pengaduan" class="hover:underline">Pengaduan</a>
+      <a href="#berita" class="hover:underline">Berita</a>
+      <a href="#kontak" class="hover:underline">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="beranda" class="bg-blue-700 text-white py-20 text-center">
+  <h2 class="text-4xl font-bold mb-4">Selamat Datang di Website Resmi</h2>
+  <p class="text-xl">Dinas Tenaga Kerja Aceh - Layanan Publik Berbasis Digital</p>
+</section>
+
+<!-- PROFIL -->
+<section class="max-w-5xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold text-center mb-4">Profil Singkat Disnaker Aceh</h3>
+  <div class="rounded overflow-hidden shadow-lg">
+    <img src="WhatsApp Image 2025-08-08 at 21.56.16.jpeg" class="w-full">
+  </div>
+  <p class="mt-6 text-center text-lg">
+    Disnaker Aceh melayani pelatihan kerja, kartu AK1, dan pengaduan tenaga kerja.
+  </p>
+</section>
+
+<!-- LAYANAN -->
+<section id="layanan" class="max-w-4xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold mb-6 text-center">Formulir Layanan Umum</h3>
+  <form class="bg-white p-6 rounded shadow space-y-4">
+    <input type="text" placeholder="Nama Lengkap" class="w-full border p-2 rounded" required>
+    <input type="text" placeholder="NIK" class="w-full border p-2 rounded" required>
+    <select class="w-full border p-2 rounded" required>
+      <option>Pilih Jenis Layanan</option>
+      <option>Pelatihan Kerja</option>
+      <option>Pembuatan Kartu AK1</option>
+    </select>
+    <button class="bg-blue-700 text-white px-4 py-2 rounded w-full">Kirim</button>
+  </form>
+</section>
+
+<!-- PENGADUAN -->
+<section id="pengaduan" class="max-w-4xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold mb-6 text-center text-red-600">
+    Form Pengaduan Tenaga Kerja
+  </h3>
+  <form id="formPengaduan" class="bg-white p-6 rounded shadow space-y-4">
+
+    <input type="text" placeholder="Nama Pelapor" class="w-full border p-2 rounded" required>
+    <input type="text" placeholder="NIK" class="w-full border p-2 rounded" required>
+    <input type="text" placeholder="Nama Perusahaan" class="w-full border p-2 rounded" required>
+
+    <select class="w-full border p-2 rounded" required>
+      <option>Jenis Pengaduan</option>
+      <option>Upah Tidak Dibayar</option>
+      <option>PHK Sepihak</option>
+      <option>Pelecehan Kerja</option>
+    </select>
+
+    <textarea rows="4" placeholder="Uraian Pengaduan"
+      class="w-full border p-2 rounded" required></textarea>
+
+    <!-- UPLOAD FILE -->
+    <label class="block font-medium">Upload Bukti (PDF / JPG / PNG)</label>
+    <input type="file"
+           id="bukti"
+           accept=".pdf,.jpg,.jpeg,.png"
+           class="w-full border p-2 rounded"
+           required>
+    <p class="text-sm text-gray-500">Maksimal 5MB</p>
+
+    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded w-full">
+      Kirim Pengaduan
+    </button>
+  </form>
+</section>
+
+<!-- CEK STATUS -->
+<section class="max-w-3xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold text-center mb-4">Cek Status Pengaduan</h3>
+  <div class="bg-white p-4 rounded shadow">
+    <input id="cekTiket" class="w-full border p-2 rounded mb-3"
+      placeholder="Masukkan Nomor Tiket">
+    <button onclick="cekStatus()"
+      class="bg-blue-700 text-white px-4 py-2 rounded w-full">
+      Cek Status
+    </button>
+    <p id="hasilStatus" class="text-center mt-3 font-medium"></p>
+  </div>
+</section>
+
+<!-- LIVE CHAT -->
+<section class="max-w-4xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold mb-4 text-center">Live Chat</h3>
+  <div class="bg-white p-4 rounded shadow h-40 text-gray-500">
+    (Demo Live Chat – dapat diintegrasikan dengan WhatsApp / Tawk.to)
+  </div>
+</section>
+
+<!-- MAPS (AMAN TIDAK DIUBAH) -->
+<section class="max-w-5xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold mb-4 text-center">Lokasi Kantor</h3>
+  <iframe class="w-full h-64 rounded shadow"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12796.087024768535!2d95.3215075!3d5.5482904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304037d1e9df4f0f%3A0x1a53e2d4978289d3!2sDinas%20Tenaga%20Kerja%20Aceh!5e0!3m2!1sen!2sid!4v1698481080152!5m2!1sen!2sid"
+    loading="lazy"></iframe>
+</section>
+
+<!-- BERITA -->
+<section id="berita" class="max-w-6xl mx-auto px-4 py-10" data-aos="fade-up">
+  <h3 class="text-2xl font-bold mb-6 text-center">Berita Terbaru</h3>
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded shadow">
+      <h4 class="font-bold">Job Fair 2026</h4>
+      <p>Disnaker Aceh akan menggelar Job Fair di Banda Aceh.</p>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <h4 class="font-bold">Pelatihan Digital</h4>
+      <p>Pelatihan gratis untuk pencari kerja.</p>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <h4 class="font-bold">AK1 Online</h4>
+      <p>Pembuatan kartu AK1 kini bisa online.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak" class="bg-blue-900 text-white py-6 text-center">
+  &copy; <span id="tahun"></span> Disnaker Aceh
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6283197805336" target="_blank"
+ class="fixed bottom-6 right-6 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg">
+  Pengaduan WA
+</a>
+
+<!-- SCRIPT -->
+<script>
+  function generateTicket() {
+    return "DNK-" + Math.floor(100000 + Math.random() * 900000);
+  }
+
+  document.getElementById("formPengaduan").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const file = document.getElementById("bukti").files[0];
+    if (!file) {
+      alert("Silakan upload bukti pengaduan!");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Ukuran file maksimal 5MB!");
+      return;
+    }
+
+    const tiket = generateTicket();
+    alert(
+      "Pengaduan berhasil dikirim!\n" +
+      "Nomor Tiket: " + tiket + "\n" +
+      "File: " + file.name
+    );
+
+    this.reset();
+  });
+
+  function cekStatus() {
+    document.getElementById("hasilStatus").innerText =
+      "Status: Sedang diproses oleh petugas Disnaker Aceh.";
+  }
+
+  document.getElementById("tahun").innerText =
+    new Date().getFullYear();
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
